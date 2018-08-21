@@ -1,1 +1,1 @@
-# WordCount-Java   词频统计第一版
+# WordCount-Java   词频统计
