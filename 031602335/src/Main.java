@@ -1,5 +1,7 @@
 
 
+
+
 import java.io.*;
 import java.util.*;
 
@@ -49,11 +51,11 @@ public class Main {
 
 	public void workOut() {
 
-		
-		
 		for (int i =0;i<strArray.size();i++) {
 			Main.characters += Main.strArray.get(i).length();// 计算字符数
-			Main.lines++;// 计算行数
+			if(!strArray.get(i).trim().isEmpty()) {
+				Main.lines++;
+			}// 计算行数
 			
 		}
 		for(String word : wordArray2) {
