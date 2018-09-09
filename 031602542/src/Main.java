@@ -25,18 +25,20 @@ public class Main {
 		File file = new File(fileName);
 		// 为了减少文件读写，先将文本内容存到string中
 		String txt = readInfo(file);
-		int charCount = lib.charCount(txt);
-		int lineCount = lib.lineCount(txt);
-		int wordCount = lib.wordCount(txt);
-		List<Entry<String, Integer>> wordCountTopTen = lib.wordCountTopTen(txt);
-		/*
-		 * 第二种方法 int charCount = lib.charCount(file); 
-		 * int lineCount=lib.lineCount(file); 
-		 * int wordCount = lib.wordCount(file);
-		 * List<Entry<String,Integer>> wordCountTopTen = lib.wordCountTopTen(file);
-		 */
-		writeInfo(charCount, wordCount, lineCount, wordCountTopTen);
-		printInfo();
+		if (txt != null) {
+			int charCount = lib.charCount(txt);
+			int lineCount = lib.lineCount(txt);
+			int wordCount = lib.wordCount(txt);
+			List<Entry<String, Integer>> wordCountTopTen = lib.wordCountTopTen(txt);
+			/*
+			 * 第二种方法 int charCount = lib.charCount(file); 
+			 * int lineCount=lib.lineCount(file);
+			 * int wordCount = lib.wordCount(file); List<Entry<String,Integer>>
+			 * wordCountTopTen = lib.wordCountTopTen(file);
+			 */
+			writeInfo(charCount, wordCount, lineCount, wordCountTopTen);
+			printInfo();
+		}
 	}
 
 	/*
