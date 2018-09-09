@@ -1,0 +1,13 @@
+characters: 1403
+words: 140
+lines: 14
+<school>: 6
+<that>: 6
+<academic>: 4
+<achievement>: 4
+<found>: 4
+<differences>: 3
+<factors>: 3
+<percent>: 3
+<success>: 3
+<their>: 3
