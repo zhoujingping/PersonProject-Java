@@ -26,28 +26,23 @@ public class lib {
 				lineCount++;
 			}
 			reader.close();
-			return lineCount;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
-		}
-		return -1;
-	}
-
-	/*
-	 * 从字符串读取行数
-	 */
-	public static int lineCount(String string) {
-		int lineCount = 0;
-		for (int i = 0; i < string.length(); i++) {
-			if (string.charAt(i) == '\n') {
-				lineCount++;
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}
 			}
 		}
-		return (lineCount + 1);
+		return lineCount;
 	}
 
 	/*
@@ -74,22 +69,17 @@ public class lib {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}
+			}
 		}
 		return countword;
-	}
-
-	/*
-	 * 从字符串读取单词个数
-	 */
-	public static int wordCount(String string) {
-		Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
-		Matcher m = null;
-		m = p.matcher(string);
-		int count = 0;
-		while (m.find()) {
-			count++;
-		}
-		return count;
 	}
 
 	/*
@@ -125,13 +115,6 @@ public class lib {
 	}
 
 	/*
-	 * 从字符串中获取字符个数
-	 */
-	public static int charCount(String string) {
-		return string.length();
-	}
-
-	/*
 	 * 从文件中读取单词频率前十
 	 */
 	public static List<Entry<String, Integer>> wordCountTopTen(File file) {
@@ -153,53 +136,21 @@ public class lib {
 					}
 				}
 			}
+			reader.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
-		}
-		List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(TheNumberOfWord.entrySet());
-		Comparator<Entry<String, Integer>> com = new Comparator<Entry<String, Integer>>() {
-
-			@Override
-			public int compare(Entry<String, Integer> arg0, Entry<String, Integer> arg1) {
-				// TODO Auto-generated method stub
-				if (arg0.getValue() != arg1.getValue()) {
-					return (arg1.getValue().compareTo(arg0.getValue()));
-				} else {
-					return (arg0.getKey().compareTo(arg1.getKey()));
+		}finally {
+			if(reader!=null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
 				}
-			}
-		};
-		Collections.sort(list, com);
-		int topTen = 10;
-		List<Entry<String, Integer>> TheWordInTopTen = new ArrayList<Entry<String, Integer>>();
-		TheNumberOfWord.clear();
-		for (Map.Entry<String, Integer> entry : list) {
-			TheWordInTopTen.add(entry);
-			topTen--;
-			if (topTen == 0) {
-				break;
-			}
-		}
-		return TheWordInTopTen;
-	}
-
-	/*
-	 * 从字符串中获取单词前十
-	 */
-	public static List<Entry<String, Integer>> wordCountTopTen(String string) {
-		Map<String, Integer> TheNumberOfWord = new HashMap<String, Integer>();// 每个单词的个数
-		Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
-		Matcher m = p.matcher(string);
-		while (m.find()) {
-			String word = m.group().toLowerCase();
-			if (TheNumberOfWord.containsKey(word)) {
-				TheNumberOfWord.put(word, TheNumberOfWord.get(word) + 1);
-			} else {
-				TheNumberOfWord.put(word, 1);
 			}
 		}
 		List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(TheNumberOfWord.entrySet());
@@ -214,7 +165,6 @@ public class lib {
 					return (arg0.getKey().compareTo(arg1.getKey()));
 				}
 			}
-
 		};
 		Collections.sort(list, com);
 		int topTen = 10;
