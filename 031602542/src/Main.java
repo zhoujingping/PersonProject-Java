@@ -30,14 +30,13 @@ public class Main {
 			int lineCount = lib.lineCount(txt);
 			int wordCount = lib.wordCount(txt);
 			List<Entry<String, Integer>> wordCountTopTen = lib.wordCountTopTen(txt);
-			/*
-			 * 第二种方法 int charCount = lib.charCount(file); 
+			/*第二种方法
+			 * int charCount = lib.charCount(file); 
 			 * int lineCount=lib.lineCount(file);
-			 * int wordCount = lib.wordCount(file); List<Entry<String,Integer>>
-			 * wordCountTopTen = lib.wordCountTopTen(file);
+			 * int wordCount = lib.wordCount(file); 
+			 * List<Entry<String,Integer>>wordCountTopTen = lib.wordCountTopTen(file);
 			 */
 			writeInfo(charCount, wordCount, lineCount, wordCountTopTen);
-			printInfo();
 		}
 	}
 
@@ -85,57 +84,28 @@ public class Main {
 			writer = new BufferedWriter(new FileWriter(file, true));
 			// 写入字符个数
 			writer.write("characters: " + String.valueOf(charCount));
+			System.out.println("characters: " + String.valueOf(charCount));
 
 			writer.newLine();
 			// 写入单词个数
 			writer.write("words: " + String.valueOf(wordCount));
+			System.out.println("words: " + String.valueOf(wordCount));
 
 			writer.newLine();
 			// 写入行数
 			writer.write("lines: " + String.valueOf(lineCount));
+			System.out.println("lines: " + String.valueOf(lineCount));
 
-			int topTen = 10;
 			for (Map.Entry<String, Integer> entry : wordCountTopTen) {
 				writer.newLine();
 				writer.write("<" + entry.getKey() + ">: " + entry.getValue());
-				topTen--;
-				if (topTen == 0) {
-					break;
-				}
+				System.out.println("<" + entry.getKey() + ">: " + entry.getValue());
 			}
 			writer.flush();
 			writer.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
-		}
-	}
-
-	public static void printInfo() {
-		File file = new File("Result.txt");
-		BufferedReader reader = null;
-		String string = null;
-		try {
-			reader = new BufferedReader(new FileReader(file));
-			while ((string = reader.readLine()) != null) {
-				System.out.println(string);
-			}
-			reader.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
-		} finally {
-			if (reader != null) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					System.out.println(e.getMessage());
-				}
-			}
 		}
 	}
 }

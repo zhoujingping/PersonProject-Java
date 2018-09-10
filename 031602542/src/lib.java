@@ -57,7 +57,7 @@ public class lib {
 		BufferedReader reader = null;
 		String line = null;
 		int countword = 0;
-		Pattern p = Pattern.compile("[a-zA-Z]{4}+[a-zA-Z0-9]{0,}");
+		Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
 		Matcher m = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
@@ -82,7 +82,7 @@ public class lib {
 	 * 从字符串读取单词个数
 	 */
 	public static int wordCount(String string) {
-		Pattern p = Pattern.compile("[a-zA-Z]{4}+[a-zA-Z0-9]{0,}");
+		Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
 		Matcher m = null;
 		m = p.matcher(string);
 		int count = 0;
@@ -138,7 +138,7 @@ public class lib {
 		Map<String, Integer> TheNumberOfWord = new HashMap<String, Integer>();// 每个单词的个数
 		BufferedReader reader = null;
 		String line = null;
-		Pattern p = Pattern.compile("[a-zA-Z]{4}+[a-zA-Z0-9]{0,}");
+		Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
 		Matcher m = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
@@ -192,7 +192,7 @@ public class lib {
 	 */
 	public static List<Entry<String, Integer>> wordCountTopTen(String string) {
 		Map<String, Integer> TheNumberOfWord = new HashMap<String, Integer>();// 每个单词的个数
-		Pattern p = Pattern.compile("[a-zA-Z]{4}+[a-zA-Z0-9]{0,}");
+		Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
 		Matcher m = p.matcher(string);
 		while (m.find()) {
 			String word = m.group().toLowerCase();
