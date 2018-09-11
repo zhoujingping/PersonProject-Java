@@ -21,7 +21,7 @@ public class Main {
 		}
 		File file = new File(fileName);
 		if (!file.exists()) {
-			System.out.println(file+"文件不存在");
+			System.out.println(file + "文件不存在");
 			System.exit(0);
 		}
 		if (!file.isFile()) {

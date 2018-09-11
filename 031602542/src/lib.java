@@ -88,11 +88,14 @@ public class lib {
 	public static int charCount(File file) {
 		BufferedReader reader = null;
 		int countchar = 0;
+		int charTemp = 0;
 		try {
 			reader = new BufferedReader(new FileReader(file));
 
-			while (reader.read() != -1) {
-				countchar++;
+			while ((charTemp = reader.read()) != -1) {
+				if (charTemp / (0x80) == 0) {
+					countchar++;
+				}
 			}
 			reader.close();
 		} catch (FileNotFoundException e) {
@@ -143,8 +146,8 @@ public class lib {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
-		}finally {
-			if(reader!=null) {
+		} finally {
+			if (reader != null) {
 				try {
 					reader.close();
 				} catch (IOException e) {
