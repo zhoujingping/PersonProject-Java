@@ -11,6 +11,12 @@ public class Main {
 		File file = new File(path);
 		int charcount = charCount.charCount(file);
 		System.out.println("characters:" + charCount.charCount(file));
+		System.out.println("words:" + wordCount.wordCount(file));
 		System.out.println("lines:" + lineCount.lineCount(file));
+		
+		writeInTxt.writeInTxt("characters:" + charCount.charCount(file));
+		writeInTxt.writeInTxt("words:" + wordCount.wordCount(file));
+		writeInTxt.writeInTxt("lines:" + lineCount.lineCount(file));
+		wordDetail.wordDetail(file);
 	}
 }
