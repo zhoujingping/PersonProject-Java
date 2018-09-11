@@ -65,6 +65,7 @@ public class lib {
                     sb = new StringBuffer();
                     while (temp != null) {
                         sb.append(temp);
+                        sb.append(" ");//每行结束多读一个空格
                         temp = br1.readLine();
 
                     }
@@ -72,7 +73,7 @@ public class lib {
                     e.printStackTrace();
                 }
                 String info = sb.toString();
-                String s[] = info.split(",|\\.| |\\?|\\!|\\'");
+                String s[] = info.split(",|\\.| |\\?|\\!|\\'|\t");
                 for (int i = 0; i < s.length; i++) {
                     if (s[i].length() >= 4) {
                         String temp = s[i].substring(0, 4);
@@ -108,6 +109,7 @@ public class lib {
                     sb=new StringBuffer();
                     while(temp!=null){
                         sb.append(temp);
+                        sb.append(" ");//每行结束多读一个空格
                         temp=br1.readLine();
                     }
                 }
@@ -116,7 +118,7 @@ public class lib {
                 }
                 /*读取的内容*/
                 String info=sb.toString();
-                String s[]=info.split(",|\\.| |\\?|\\!|\\'");
+                String s[]=info.split(",|\\.| |\\?|\\!|\\'|\t");
                 /*统计单词个数*/
                 for(int i=0;i<s.length;i++){
                     if(s[i].length()>=4) {

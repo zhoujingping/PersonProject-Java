@@ -1,12 +1,15 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /*import static com.siberia.demo.lib.*;*/
 
 
 public class WordCount {
     public static void main(String[] args) {
-        String pathname = args[0];
+        Scanner in=new Scanner(System.in);
+        String pathname=in.nextLine();
+        /*String pathname = args[0];*/
         int characters = 0;
         int words = 0;
         int lines = 0;
