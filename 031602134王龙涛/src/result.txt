@@ -1,0 +1,13 @@
+charactersnumber: 329
+lines: 11
+words: 29
+<city>: 2
+<stars>: 2
+<asffhk123>: 1
+<asfhaf>: 1
+<dreams>: 1
+<from>: 1
+<just>: 1
+<shared>: 1
+<that>: 1
+<there>: 1
