@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class WordCount {
     public static void main(String[] args) {
-        Scanner in=new Scanner(System.in);
-        String pathname=in.nextLine();
-        /*String pathname = args[0];*/
+        /*Scanner in=new Scanner(System.in);
+        String pathname=in.nextLine();*/
+        String pathname = args[0];
         int characters = 0;
         int words = 0;
         int lines = 0;
