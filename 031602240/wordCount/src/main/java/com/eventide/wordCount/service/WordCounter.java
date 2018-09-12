@@ -12,6 +12,12 @@ import java.util.StringTokenizer;
  * @since 2018/9/11
  */
 public class WordCounter {
+    /**
+     * 读取并计算文件单词数.
+     *
+     * @param fileName 文件名
+     * @return 总单词数
+     */
     public static long countWord(String fileName) {
         InputStreamReader inputStreamReader = null;
         BufferedReader bufferedReader = null;
