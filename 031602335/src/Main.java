@@ -5,24 +5,22 @@ import java.util.*;
 
 public class Main {
 
-	
-	private static int lines = 0;// 行数
-	private static int characters = 0;// 字符数
-	private static int words = 0;// 单词数
-	private static ArrayList<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>();
+	private int lines = 0;// 行数
+	private int characters = 0;// 字符数
+	private int words = 0;// 单词数
+	private ArrayList<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>();
 
-	public static void main(String[] args) throws FileNotFoundException, IOException  {
+	public static void main(String[] args) {
 
 		Main m = new Main();
 		File f = m.readFile(args);
-		
-		Main.characters = Lib.countChars(f);
-		Main.lines = Lib.countLines(f);
-		Main.words = Lib.countWords(f);
-		Main.list = Lib.countTop10(f);
+
+		m.characters = Lib.countChars(f);
+		m.lines = Lib.countLines(f);
+		m.words = Lib.countWords(f);
+		m.list = Lib.countTop10(f);
 
 		m.writeFile();
-
 
 	}
 
@@ -32,31 +30,28 @@ public class Main {
 
 		String fileName = null;
 		File f = null;
-		
-		if(args.length == 0 || args == null) {
+
+		if (args.length == 0 || args == null) {
 			Scanner scan = new Scanner(System.in);
 			fileName = scan.nextLine();
 			scan.close();
-		}
-		else {
+		} else {
 			fileName = args[0];
 		}
-		
+
 		f = new File(fileName);
-		if(!f.exists()) {
-			System.out.println(f+"文件不存在");
+		if (!f.exists()) {
+			System.out.println(f + "文件不存在");
 			System.exit(0);
 		}
-		
+
 		return f;
-		
+
 	}
-
-
 
 	// 写入文件
 
-	public void writeFile()  {
+	public void writeFile() {
 
 		File f = new File("result.txt");
 		FileOutputStream fos = null;
@@ -67,7 +62,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		PrintStream ps = new PrintStream(fos);
 		System.setOut(ps);
 		System.out.println("characters: " + characters);
@@ -76,7 +71,7 @@ public class Main {
 
 		for (int i = 0; i < 10 && i < list.size(); i++) {
 
-			System.out.println(list.get(i).getKey() + ": " + list.get(i).getValue());
+			System.out.println("<"+list.get(i).getKey()+">" + ": " + list.get(i).getValue());
 		}
 
 	}

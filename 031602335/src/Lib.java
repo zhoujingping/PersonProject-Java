@@ -75,7 +75,6 @@ public class Lib {
 
 	public static int countWords(File f) {
 
-		int words = 0;
 		String str = null;
 		BufferedReader br = null;
 		HashMap<String, Integer> hashMap = new HashMap<String, Integer>();// 用于储存单词及其个数
@@ -91,32 +90,28 @@ public class Lib {
 							hashMap.put(word, hashMap.get(word) + 1);// 计算单词出现次数
 						} else {
 							hashMap.put(word, 1);
-		}
-							
 						}
+
 					}
 				}
-			
 			}
-		catch(FileNotFoundException e)
-	{
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}catch(IOException e)
-	{
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}finally
-	{
-		try {
-			br.close();
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-	}
 
-	return hashMap.size();
+		return hashMap.size();
 
 	}
 
@@ -137,7 +132,7 @@ public class Lib {
 							hashMap.put(word, hashMap.get(word) + 1);// 计算单词出现次数
 						} else {
 							hashMap.put(word, 1);
-		}
+						}
 					}
 				}
 
