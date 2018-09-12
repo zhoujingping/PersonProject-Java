@@ -1,11 +1,11 @@
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 public class charCount {
-
-	public static int charCount(File file) {
+	public static int charcount(File file) {
 		int charcount = 0;
 		try {
 			if (file.isFile() && file.exists()) {	//检测文件名是否正常或文件是否存在
@@ -19,7 +19,10 @@ public class charCount {
 						value2 = value;
 					}
 				}
-				charcount = charcount - lineCount.lineCount(file);
+				if (value2 != 10) {
+					charcount ++;
+				}
+				charcount = charcount - lineCount.linecount(file);
 				//由于回车占两个字符
 				bReader.close();
 			} else {
@@ -30,5 +33,4 @@ public class charCount {
 		}
 		return charcount;
 	}
-	
 }

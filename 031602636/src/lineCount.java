@@ -1,12 +1,10 @@
-import java.io.BufferedReader;
+
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
-import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 
 public class lineCount {
-	public static int lineCount(File file) {
+	public static int linecount(File file) {
 		int linecount = 0;
 		try {
 			if (file.isFile() && file.exists()) {	//检测文件名是否正常或文件是否存在

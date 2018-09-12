@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +13,7 @@ import java.util.TreeSet;
 
 public class wordDetail {
 	
-	public static void wordDetail(File file) {
+	public static void worddetail(File file) {
 		String buffer;
 		Map<String,Integer> map=new HashMap<String,Integer>();
 		try {
@@ -21,9 +22,12 @@ public class wordDetail {
 				StringTokenizer st = new StringTokenizer(buffer, ", !’-#()[]?%*<>");
 				while(st.hasMoreTokens()){
 					String str=st.nextToken();
-					if(map.containsKey(str)) 
-						map.put(str, map.get(str)+1);
-					else map.put(str, 1);
+					str = str.toLowerCase();
+					if ((str.charAt(0) >= '9' || str.charAt(0) <= '0') && str.length() >= 4) {
+						if(map.containsKey(str)) 
+							map.put(str, map.get(str)+1);
+						else map.put(str, 1);
+					}
 				}
 			}
 			Set<WordEntity> set=new TreeSet<WordEntity>();
@@ -39,6 +43,7 @@ public class wordDetail {
 				System.out.println(ite.next());
 				count++;
 			}
+			reader.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("文件没有找到");
 		}

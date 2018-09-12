@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.util.Scanner;
 /*
@@ -9,14 +10,14 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		String path = scanner.nextLine();
 		File file = new File(path);
-		int charcount = charCount.charCount(file);
-		System.out.println("characters:" + charCount.charCount(file));
-		System.out.println("words:" + wordCount.wordCount(file));
-		System.out.println("lines:" + lineCount.lineCount(file));
+		System.out.println("characters:" + charCount.charcount(file));
+		System.out.println("words:" + wordCount.wordcount(file));
+		System.out.println("lines:" + lineCount.linecount(file));
 		
-		writeInTxt.writeInTxt("characters:" + charCount.charCount(file));
-		writeInTxt.writeInTxt("words:" + wordCount.wordCount(file));
-		writeInTxt.writeInTxt("lines:" + lineCount.lineCount(file));
-		wordDetail.wordDetail(file);
+		writeInTxt.writeTxt("characters:" + charCount.charcount(file));
+		writeInTxt.writeTxt("words:" + wordCount.wordcount(file));
+		writeInTxt.writeTxt("lines:" + lineCount.linecount(file));
+		wordDetail.worddetail(file);
+		scanner.close();
 	}
 }

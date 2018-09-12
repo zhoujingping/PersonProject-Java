@@ -22,12 +22,11 @@ public class WordEntity implements Comparable<WordEntity>{
 	}
 	@Override
 	public String toString() {
-	    writeInTxt.writeInTxt( "<" + word + ">:" + count);
+	    writeInTxt.writeTxt( "<" + word + ">:" + count);
 	    return "<" + word + ">:" + count;
 	}
 	@Override
 	public int compareTo(WordEntity O) {
-	    // TODO Auto-generated method stub
 	    int cmp=count.intValue()-O.count.intValue();
 	    return (cmp==0?word.compareTo(O.getKey()):-cmp);
 	}
