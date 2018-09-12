@@ -64,8 +64,8 @@ public class Main {
 
 			for (Map.Entry<String, Integer> entry : wordCountTopTen) {
 				writer.newLine();
-				writer.write(entry.getKey()+": " + entry.getValue());
-				System.out.println(entry.getKey() + ": " + entry.getValue());
+				writer.write("<"+entry.getKey()+">: " + entry.getValue());
+				System.out.println("<"+entry.getKey() + ">: " + entry.getValue());
 			}
 			writer.flush();
 			writer.close();
