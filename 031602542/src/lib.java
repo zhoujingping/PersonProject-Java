@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class lib {
 	/*
@@ -20,10 +18,12 @@ public class lib {
 	public static int lineCount(File file) {
 		BufferedReader reader = null;
 		int lineCount = 0;
+		String line = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
-			while (reader.readLine() != null) {
-				lineCount++;
+			while ((line = reader.readLine()) != null) {
+				if (!line.trim().equals(""))// 去除空白字符
+					lineCount++;
 			}
 			reader.close();
 		} catch (FileNotFoundException e) {
@@ -52,15 +52,21 @@ public class lib {
 		BufferedReader reader = null;
 		String line = null;
 		int countword = 0;
-		Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
-		Matcher m = null;
+		// Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
+		// Matcher m = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			while ((line = reader.readLine()) != null) {
-				m = p.matcher(line);
-				while (m.find()) {
-					countword++;
+				String[] words = line.split("[^a-zA-Z0-9]+");
+				for (String word : words) {
+					if (word.matches("[a-zA-Z]{4}[a-zA-Z0-9]*")) {
+						countword++;
+					}
 				}
+				// m = p.matcher(line);
+				// while (m.find()) {
+				// countword++;
+				// }
 			}
 			reader.close();
 		} catch (FileNotFoundException e) {
@@ -93,7 +99,7 @@ public class lib {
 			reader = new BufferedReader(new FileReader(file));
 
 			while ((charTemp = reader.read()) != -1) {
-				if (charTemp / (0x80) == 0) {
+				if (charTemp / (0x80) == 0) {// 判断是否属于ascill码
 					countchar++;
 				}
 			}
@@ -124,21 +130,32 @@ public class lib {
 		Map<String, Integer> TheNumberOfWord = new HashMap<String, Integer>();// 每个单词的个数
 		BufferedReader reader = null;
 		String line = null;
-		Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
-		Matcher m = null;
+		// Pattern p = Pattern.compile("[a-zA-Z]{4}[a-zA-Z0-9]*");
+		// Matcher m = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			while ((line = reader.readLine()) != null) {
-				m = p.matcher(line);
-				while (m.find()) {
-					String word = m.group().toLowerCase();
-					if (TheNumberOfWord.containsKey(word)) {
-						TheNumberOfWord.put(word, TheNumberOfWord.get(word) + 1);
-					} else {
-						TheNumberOfWord.put(word, 1);
+				String[] words = line.split("[^a-zA-Z0-9]+");//以非英文字符和数字为分隔符
+				for (String word : words) {
+					if (word.matches("[a-zA-Z]{4}[a-zA-Z0-9]*")) {//判断是否满足前四个字符为单词的条件
+						if (TheNumberOfWord.containsKey(word)) {
+							TheNumberOfWord.put(word, TheNumberOfWord.get(word) + 1);
+						} else {
+							TheNumberOfWord.put(word, 1);
+						}
 					}
 				}
 			}
+			// m = p.matcher(line);
+			// while (m.find()) {
+			// String word = m.group().toLowerCase();
+			// if (TheNumberOfWord.containsKey(word)) {
+			// TheNumberOfWord.put(word, TheNumberOfWord.get(word) + 1);
+			// } else {
+			// TheNumberOfWord.put(word, 1);
+			// }
+			// }
+			// }
 			reader.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
