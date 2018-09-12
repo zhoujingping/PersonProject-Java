@@ -1,0 +1,6 @@
+characters:21
+words3
+lines4
+<achhh>:2
+<aabb>:1
+<ddcc>:1
