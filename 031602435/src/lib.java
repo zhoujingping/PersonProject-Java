@@ -183,10 +183,10 @@ public static String encoding = "UTF-8";
 		result.append("characters:");
 		result.append(charcount+linecount-1);
 		result.append("\r\n");
-		result.append("words");
+		result.append("words:");
 		result.append(wordscount);
 		result.append("\r\n");
-		result.append("lines");
+		result.append("lines:");
 		result.append(linecount);
 		result.append("\r\n");
 		
