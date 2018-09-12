@@ -1,5 +1,4 @@
 
-
 import java.io.*;
 import java.util.*;
 
@@ -8,7 +7,7 @@ public class Main {
 	private int lines = 0;// 行数
 	private int characters = 0;// 字符数
 	private int words = 0;// 单词数
-	private ArrayList<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>();
+	private ArrayList<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>();//排序好的单词列表
 
 	public static void main(String[] args) {
 

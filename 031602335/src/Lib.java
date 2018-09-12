@@ -1,9 +1,10 @@
 
-
 import java.io.*;
 import java.util.*;
 
 public class Lib {
+
+	// 计算字符数
 
 	public static int countChars(File f) {
 
@@ -32,6 +33,8 @@ public class Lib {
 		return characters;
 
 	}
+
+	// 计算行数
 
 	public static int countLines(File f) {
 
@@ -73,11 +76,13 @@ public class Lib {
 
 	}
 
+	// 计算单词数
+
 	public static int countWords(File f) {
 
+		int words = 0;
 		String str = null;
 		BufferedReader br = null;
-		HashMap<String, Integer> hashMap = new HashMap<String, Integer>();// 用于储存单词及其个数
 
 		try {
 			br = new BufferedReader(new FileReader(f));
@@ -85,12 +90,7 @@ public class Lib {
 				String[] wordArray = str.split("\\s*[^a-zA-Z0-9]+");
 				for (String word : wordArray) {
 					if (word.matches("[a-zA-Z]{4,}[a-zA-Z0-9]*")) {
-						word = word.toLowerCase();
-						if (hashMap.containsKey(word)) {
-							hashMap.put(word, hashMap.get(word) + 1);// 计算单词出现次数
-						} else {
-							hashMap.put(word, 1);
-						}
+						words++;
 
 					}
 				}
@@ -111,9 +111,11 @@ public class Lib {
 			}
 		}
 
-		return hashMap.size();
+		return words;
 
 	}
+
+	// 计算出现频率前10的单词 若相同频率按照字典序
 
 	public static ArrayList<Map.Entry<String, Integer>> countTop10(File f) {
 
@@ -154,6 +156,8 @@ public class Lib {
 			}
 		}
 		list = new ArrayList<Map.Entry<String, Integer>>(hashMap.entrySet());
+
+		// 排序
 
 		Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
 			public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2) {
