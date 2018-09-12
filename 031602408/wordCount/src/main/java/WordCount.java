@@ -87,13 +87,11 @@ public class WordCount {
 	      
 
         System.out.println("Characters: "+ (characterscount+wordline));
-       //Print printwords=new Print();
-       //printwords.printWords(br);
        System.out.println("words: "+wordcount);
-        Print printline=new Print();
-        printline.printline(pathname);
+       Print printline=new Print();
+       printline.printline(pathname);
         //System.out.println("lines: "+ wordline);
-        Print printWordsFrequence=new Print();
-        printWordsFrequence.printWordFrequence(wordsCount);
+       Print printWordsFrequence=new Print();
+       printWordsFrequence.printWordFrequence(wordsCount);
         }  
 }

@@ -27,33 +27,6 @@ public class Print {
 	            e.printStackTrace(); 
 	        } 
 }
-	 public static void printWords( BufferedReader br){  
-		 int wordcount = 0;
-	        List<String> lists = new ArrayList<String>();  //存储过滤后单词的列表  
-	        String readLine = null;
-	        try
-	        {
-			while((readLine = br.readLine()) != null){  
-				//wordline++;
-	            String[] wordsArr1 = readLine.split("[^a-zA-Z0-9]");  //过滤出只含有字母的  
-	            for (String word : wordsArr1) {  
-	                if(word.length() != 0){  //去除长度为0的行
-	                	
-	                	while(!(word.charAt(0)>=97&&word.charAt(0)<=122))
-	                	{
-	                		word = word.substring(1, word.length());
-	                	}
-	                	if(word.length()>=4) wordcount++;
-	                   // lists.add(word);  
-	                }  
-	            }  
-	        }
-		    System.out.println("words: "+wordcount);
-	 }catch(IOException e) { 
-         e.printStackTrace(); 
-     } 
-	    
-	 }
 	 public static void printWordFrequence(Map<String,Integer> oldmap){  
          
 	        ArrayList<Map.Entry<String,Integer>> list = new ArrayList<Map.Entry<String,Integer>>(oldmap.entrySet());  
@@ -68,7 +41,7 @@ public class Print {
 	        	if(k>10)break;
 	        	if(list.get(i).getKey().length()>3)
 	        	{
-	            System.out.println(list.get(i).getKey()+ ": " +list.get(i).getValue());  
+	            System.out.println("<"+list.get(i).getKey()+">"+ ": " +list.get(i).getValue());  
 	            k++;
 	        }    
 	   
