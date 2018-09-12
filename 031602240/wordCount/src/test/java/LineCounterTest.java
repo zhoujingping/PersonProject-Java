@@ -19,7 +19,7 @@ public class LineCounterTest {
     }
 
     @Test
-    //测试正常行数
+    //测试混合行数
     public void lineCounterTest3() {
         long lineNum = LineCounter.countLine("mixLineTest.txt");
         assertEquals(6, lineNum);
