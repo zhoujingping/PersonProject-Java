@@ -18,14 +18,14 @@ public class WordsFrequencyCounter {
      * @param fileName 文件名
      * @return 各单词词频
      */
-    public static Map<String, Long> countWordsFrequency(String fileName) {
+    public static HashMap<String, Long> countWordsFrequency(String fileName) {
         InputStreamReader inputStreamReader = null;
         BufferedReader bufferedReader = null;
         String in = null;
         String regex = "a-zA-Z]{4,}[a-zA-Z0-9]*";
         String delim = " ,.!?-=*/()[]{}\\\"\\';:\\n\\r\\t“”‘’·——…（）【】｛｝\\0";
         String word = "";
-        Map<String, Long> wordMap = new HashMap<String, Long>(16);
+        HashMap<String, Long> wordMap = new HashMap<String, Long>(16);
 
         try {
             inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
