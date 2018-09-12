@@ -22,6 +22,7 @@ public class CharCounter {
         String in = null;
         long charNum = 0;
 
+        //读入文件
         try {
             inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
         } catch (FileNotFoundException e) {
@@ -31,9 +32,11 @@ public class CharCounter {
         if (inputStreamReader != null) {
             bufferedReader = new BufferedReader(inputStreamReader);
         }
+        //计算字符数
         try {
             while ((in = bufferedReader.readLine()) != null) {
                 charNum += in.length();
+                //加上换行符
                 charNum++;
             }
         } catch (IOException e) {

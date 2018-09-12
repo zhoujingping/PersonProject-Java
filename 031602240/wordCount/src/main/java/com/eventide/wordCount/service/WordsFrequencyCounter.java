@@ -27,6 +27,7 @@ public class WordsFrequencyCounter {
         String word = "";
         HashMap<String, Long> wordMap = new HashMap<String, Long>(16);
 
+        //读入文件
         try {
             inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
         } catch (FileNotFoundException e) {
@@ -36,12 +37,15 @@ public class WordsFrequencyCounter {
         if (inputStreamReader != null) {
             bufferedReader = new BufferedReader(inputStreamReader);
         }
+        //计算单词词频
         try {
             while ((in = bufferedReader.readLine()) != null) {
                 in = in.toLowerCase();
+                //根据分隔符分割
                 StringTokenizer tokenizer = new StringTokenizer(in, delim);
                 while (tokenizer.hasMoreTokens()) {
                     word = tokenizer.nextToken();
+                    //匹配单词
                     if (word.matches(regex)) {
                         if (wordMap.get(word) != null) {
                             wordMap.put(word, wordMap.get(word) + 1);

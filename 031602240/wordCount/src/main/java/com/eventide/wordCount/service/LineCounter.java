@@ -22,6 +22,7 @@ public class LineCounter {
         String in = null;
         long lineNum = 0;
 
+        //读入文件
         try {
             inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
         } catch (FileNotFoundException e) {
@@ -31,6 +32,7 @@ public class LineCounter {
         if (inputStreamReader != null) {
             bufferedReader = new BufferedReader(inputStreamReader);
         }
+        //计算行数
         try {
             while ((in = bufferedReader.readLine()) != null) {
                 lineNum++;

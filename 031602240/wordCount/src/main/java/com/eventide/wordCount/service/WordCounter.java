@@ -26,6 +26,7 @@ public class WordCounter {
         String regex = "a-zA-Z]{4,}[a-zA-Z0-9]*";
         String delim = " ,.!?-=*/()[]{}\\\"\\';:\\n\\r\\t“”‘’·——…（）【】｛｝\\0";
 
+        //读入文件
         try {
             inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
         } catch (FileNotFoundException e) {
@@ -35,9 +36,11 @@ public class WordCounter {
         if (inputStreamReader != null) {
             bufferedReader = new BufferedReader(inputStreamReader);
         }
+        //计算单词数
         try {
             while ((in = bufferedReader.readLine()) != null) {
                 in = in.toLowerCase();
+                //根据分隔符分割
                 StringTokenizer tokenizer = new StringTokenizer(in, delim);
                 while (tokenizer.hasMoreTokens()) {
                     if (tokenizer.nextToken().matches(regex)) {

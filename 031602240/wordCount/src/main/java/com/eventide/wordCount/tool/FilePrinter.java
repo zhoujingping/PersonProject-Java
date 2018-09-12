@@ -32,10 +32,14 @@ public class FilePrinter {
             fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
+            //输出字符数
             bufferedWriter.write("characters: " + charNum + "\n");
+            //输出单词数
             bufferedWriter.write("words: " + wordNum + "\n");
+            //输出行数
             bufferedWriter.write("lines: " + lineNum + "\n");
 
+            //输出单词词频前10
             int size = wordList.size();
             if (size >= 10) {
                 for (int i = 0; i < 10; i++) {

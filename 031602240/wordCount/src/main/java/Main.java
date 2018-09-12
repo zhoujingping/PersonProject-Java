@@ -19,24 +19,28 @@ public class Main {
     public static void main(final String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
 
+        //计算字符数
         Future<Long> futureChar = executor.submit(new Callable<Long>() {
             public Long call() {
                 return CharCounter.countChar(args[0]);
             }
         });
 
+        //计算单词数
         Future<Long> futureWord = executor.submit(new Callable<Long>() {
             public Long call() {
                 return WordCounter.countWord(args[0]);
             }
         });
 
+        //计算行数
         Future<Long> futureLine = executor.submit(new Callable<Long>() {
             public Long call() {
                 return LineCounter.countLine(args[0]);
             }
         });
 
+        //计算单词词频
         Future<ArrayList<HashMap.Entry<String, Long>>> futureWordFrequnency = executor.submit(
                 new Callable<ArrayList<HashMap.Entry<String, Long>>>() {
                     public ArrayList<HashMap.Entry<String, Long>> call() {
@@ -45,6 +49,7 @@ public class Main {
                     }
                 });
 
+        //输出至文件
         try {
             FilePrinter.printToFile("result.txt",
                     futureChar.get(), futureWord.get(), futureLine.get(), futureWordFrequnency.get());
