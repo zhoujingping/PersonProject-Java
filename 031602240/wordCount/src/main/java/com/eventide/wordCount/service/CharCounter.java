@@ -34,6 +34,7 @@ public class CharCounter {
         try {
             while ((in = bufferedReader.readLine()) != null) {
                 charNum += in.length();
+                charNum++;
             }
         } catch (IOException e) {
             e.printStackTrace();

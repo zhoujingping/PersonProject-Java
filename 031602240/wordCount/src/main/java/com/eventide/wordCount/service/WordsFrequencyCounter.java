@@ -22,7 +22,7 @@ public class WordsFrequencyCounter {
         InputStreamReader inputStreamReader = null;
         BufferedReader bufferedReader = null;
         String in = null;
-        String regex = "a-zA-Z]{4,}[a-zA-Z0-9]*";
+        String regex = "[a-zA-Z]{4,}[a-zA-Z0-9]*";
         String delim = " ,.!?-=*/()[]{}\\\"\\';:\\n\\r\\t“”‘’·——…（）【】｛｝\\0";
         String word = "";
         HashMap<String, Long> wordMap = new HashMap<String, Long>(16);

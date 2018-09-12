@@ -44,7 +44,7 @@ public class FilePrinter {
                 }
             } else {
                 for (HashMap.Entry<String, Long> map : wordList) {
-                    bufferedWriter.write("<" + map.getKey() + "<: " + map.getValue() + "\n");
+                    bufferedWriter.write("<" + map.getKey() + ">: " + map.getValue() + "\n");
                 }
             }
             bufferedWriter.flush();

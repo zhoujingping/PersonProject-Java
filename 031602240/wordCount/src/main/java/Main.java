@@ -48,6 +48,7 @@ public class Main {
         try {
             FilePrinter.printToFile("result.txt",
                     futureChar.get(), futureWord.get(), futureLine.get(), futureWordFrequnency.get());
+            executor.shutdown();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
