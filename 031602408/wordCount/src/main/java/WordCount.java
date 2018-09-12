@@ -11,18 +11,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
-
-import lib.java.Print;
-
-public class WordCount {  
+import lib.java.Store;
+public class WordCount { 
 	  public static void main(String[] args) throws Exception {  
-	    	
+	    	try {
+		     //File file = new File(args[0]);
+	    	//String pathname = file.getPath();
 	    	Scanner scanner=new Scanner(System.in);
 	    	String pathname=scanner.nextLine();
-
-	    	
-	    	int characterscount=0;
-	    	
 	    	Reader myReader = new FileReader(pathname);
 	    	Reader myBufferedReader = new BufferedReader(myReader);  	 	
 	    	//对文本处理
@@ -46,7 +42,7 @@ public class WordCount {
 	    	
 	    	 BufferedReader br = new BufferedReader(new FileReader(pathname));  
 	    	  
-	         
+	       int characterscount=0;  
 	       int wordline = 0;
 	       int wordcount = 0;
 	        List<String> lists = new ArrayList<String>();  //存储过滤后单词的列表  
@@ -83,15 +79,10 @@ public class WordCount {
 	            }  
 	  
 	        }  
-	          
-	      
-
-        System.out.println("Characters: "+ (characterscount+wordline));
-       System.out.println("words: "+wordcount);
-       Print printline=new Print();
-       printline.printline(pathname);
-        //System.out.println("lines: "+ wordline);
-       Print printWordsFrequence=new Print();
-       printWordsFrequence.printWordFrequence(wordsCount);
-        }  
+	      Store st= new Store();
+	      st.store_result(wordsCount, wordline, wordcount, characterscount);      
+	  }catch (Exception e) {
+			e.printStackTrace();
+		}		      
+} 
 }
