@@ -38,7 +38,7 @@ public class Print {
 	        }); 
 	        int k=0;
 	        for(int i = 0; i<list.size(); i++){ 
-	        	if(k>10)break;
+	        	if(k>=10)break;
 	        	if(list.get(i).getKey().length()>3)
 	        	{
 	            System.out.println("<"+list.get(i).getKey()+">"+ ": " +list.get(i).getValue());  
