@@ -23,7 +23,7 @@ public class WordCounter {
         BufferedReader bufferedReader = null;
         String in = null;
         long wordNum = 0;
-        String regex = "a-zA-Z]{4,}[a-zA-Z0-9]*";
+        String regex = "[a-zA-Z]{4,}[a-zA-Z0-9]*";
         String delim = " ,.!?-=*/()[]{}\\\"\\';:\\n\\r\\t“”‘’·——…（）【】｛｝\\0";
 
         //读入文件

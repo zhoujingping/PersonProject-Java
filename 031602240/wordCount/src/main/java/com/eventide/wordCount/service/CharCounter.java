@@ -19,7 +19,7 @@ public class CharCounter {
     public static long countChar(String fileName) {
         InputStreamReader inputStreamReader = null;
         BufferedReader bufferedReader = null;
-        String in = null;
+        int in = 0;
         long charNum = 0;
 
         //读入文件
@@ -34,9 +34,7 @@ public class CharCounter {
         }
         //计算字符数
         try {
-            while ((in = bufferedReader.readLine()) != null) {
-                charNum += in.length();
-                //加上换行符
+            while ((in = bufferedReader.read()) != -1) {
                 charNum++;
             }
         } catch (IOException e) {

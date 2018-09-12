@@ -74,7 +74,8 @@ public class WordsFrequencyCounter {
      * @return 频率最高的10个单词
      */
     public static ArrayList<HashMap.Entry<String, Long>> topTenFrequentWords(HashMap<String, Long> wordMap) {
-        ArrayList<HashMap.Entry<String, Long>> wordList = new ArrayList<HashMap.Entry<String, Long>>(wordMap.entrySet());
+        ArrayList<HashMap.Entry<String, Long>> wordList =
+                new ArrayList<HashMap.Entry<String, Long>>(wordMap.entrySet());
         Collections.sort(wordList, new Comparator<HashMap.Entry<String, Long>>() {
             public int compare(Map.Entry<String, Long> o1, Map.Entry<String, Long> o2) {
                 if (o1.getValue() < o2.getValue()) {
