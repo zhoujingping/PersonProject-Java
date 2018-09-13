@@ -1,0 +1,8 @@
+characters:116
+words:5
+lines:7
+<hello>:5
+<good>:4
+<what>:3
+<world>:3
+<what123>:1
