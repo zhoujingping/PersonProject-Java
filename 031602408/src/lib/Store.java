@@ -1,4 +1,5 @@
-package lib.java;
+package lib;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -19,9 +20,9 @@ public class Store {
 		         }); 
 		          try {
 			      //System.out.println(wordcount);
-		          File file = new File("src//result.txt");
+		          File file = new File("result.txt");
 		          BufferedWriter bi = new BufferedWriter(new FileWriter(file));
-		          bi.write("characters: "+(characterscount+wordline)+"\r\n");
+		          bi.write("characters: "+(characterscount+wordline-1)+"\r\n");
 		          bi.write("words: "+wordcount+"\r\n");
 		          bi.write("lines: "+wordline+"\r\n");
 		            int k=0;

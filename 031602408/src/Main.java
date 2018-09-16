@@ -1,7 +1,6 @@
-package main.java;
-
 import java.io.BufferedReader;
 import java.io.CharArrayWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.Reader;
@@ -9,16 +8,16 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.TreeMap;
-import lib.java.Store;
-public class WordCount { 
+
+import lib.Store;
+public class Main{ 
 	  public static void main(String[] args) throws Exception {  
 	    	try {
-		     //File file = new File(args[0]);
-	    	//String pathname = file.getPath();
-	    	Scanner scanner=new Scanner(System.in);
-	    	String pathname=scanner.nextLine();
+	    		File file = new File(args[0]);
+	        	String pathname = file.getPath();
+//	    	Scanner scanner=new Scanner(System.in);
+//	    	String pathname=scanner.nextLine();
 	    	Reader myReader = new FileReader(pathname);
 	    	Reader myBufferedReader = new BufferedReader(myReader);  	 	
 	    	//对文本处理
@@ -54,15 +53,17 @@ public class WordCount {
 	            for (String word : wordsArr1) {  
 	                if(word.length() != 0){  //去除长度为0的行
 	                	
-	                	while(!(word.charAt(0)>=97&&word.charAt(0)<=122))
+	                	/*while(!(word.charAt(0)>=97&&word.charAt(0)<=122))
 	                	{
 	                		word = word.substring(1, word.length());
-	                	}
-	                	if(word.length()>=4) wordcount++;
+	                	}*/
+	                	if((word.length()>=4)&&(Character.isLetter(word.charAt(0))&&Character.isLetter(word.charAt(1))&&Character.isLetter(word.charAt(2))&&Character.isLetter(word.charAt(3)))) 	
+	                	{ wordcount++;
 	                    lists.add(word);  
 	                }  
 	            }  
-	        }  
+	        }
+			}
 			
 		
 	          

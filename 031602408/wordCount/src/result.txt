@@ -1,6 +1,0 @@
-characters: 49
-words: 7
-lines: 10
-<abcd>: 3
-<file>: 3
-<abcd1234>: 1
